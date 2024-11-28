@@ -21,7 +21,8 @@ return {
 					"ts_ls",
 					"html",
 					"jdtls",
-					"cssls"
+					"cssls",
+					"bashls"
 				}
 			})
 		end
@@ -32,15 +33,6 @@ return {
 			local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 			local lspconfig = require("lspconfig")
-			lspconfig.lua_ls.setup({
-				capabilities = capabilities
-			})
-			lspconfig.ts_ls.setup({
-				capabilities = capabilities
-			})
-			lspconfig.html.setup({
-				capabilities = capabilities
-			})
 			require("java").setup({
 				jdk = {
 					auto_install = false
@@ -62,7 +54,19 @@ return {
 					}
 				}
 			})
+			lspconfig.lua_ls.setup({
+				capabilities = capabilities
+			})
+			lspconfig.ts_ls.setup({
+				capabilities = capabilities
+			})
+			lspconfig.html.setup({
+				capabilities = capabilities
+			})
 			lspconfig.cssls.setup({
+				capabilities = capabilities
+			})
+			lspconfig.bashls.setup({
 				capabilities = capabilities
 			})
 

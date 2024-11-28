@@ -126,7 +126,7 @@ export PATH="$PATH:/opt/nvim-linux64/bin"
 eval "$(starship init bash)"
 
 # Maven
-export PATH="$PATH:/opt/apache-maven-3.9.9/bin"
+export PATH="$PATH:/opt/apache-maven/bin"
 mvnexe() {
 	mvn exec:java -Dexec.mainClass=$1
 }
@@ -135,3 +135,6 @@ mvnexe() {
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Expense Entry script
+alias expenseentry="node /opt/expenseEntry/index.js"
