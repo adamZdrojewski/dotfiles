@@ -7,6 +7,11 @@ vim.g.mapleader = " "
 
 vim.cmd("set number")
 
+-- System clipboard copy/paste
+vim.keymap.set("v", "<leader>y", '"+y')
+vim.keymap.set("n", "<leader>yy", '"+yy')
+vim.keymap.set("n", "<leader>p", '"+p')
+
 -- Navigate vim panes better
 --[[vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
 vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")
