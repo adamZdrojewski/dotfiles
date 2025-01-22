@@ -116,9 +116,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Kitty
-export PATH="$PATH:/home/adam/.local/kitty.app/bin"
-
 # Neovim
 export PATH="$PATH:/opt/nvim-linux64/bin"
 
