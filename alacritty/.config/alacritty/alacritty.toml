@@ -1,0 +1,11 @@
+general.import = [
+	"~/.config/alacritty/catppuccin-mocha.toml"
+]
+
+[window]
+dimensions.columns = 145
+dimensions.lines = 40
+
+[font]
+normal.family = "Hack Nerd Font Mono"
+size = 12
