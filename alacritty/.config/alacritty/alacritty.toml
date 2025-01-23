@@ -5,6 +5,7 @@ general.import = [
 [window]
 dimensions.columns = 145
 dimensions.lines = 40
+opacity = 0.9
 
 [font]
 normal.family = "Hack Nerd Font Mono"
