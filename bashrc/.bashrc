@@ -117,7 +117,7 @@ if ! shopt -oq posix; then
 fi
 
 # Neovim
-export PATH="$PATH:/opt/nvim-linux64/bin"
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 
 # Starship
 eval "$(starship init bash)"
