@@ -1,11 +1,15 @@
 {
 	"position": "top",
 	"modules-left": ["hyprland/workspaces"],
-	"modules-center": ["clock"],
+	"modules-center": ["custom/clock"],
 	"modules-right": ["network", "pulseaudio", "battery"],
 	"clock": {
 		"format": "{0:%b %e  %I:%M %p}",
 		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+	},
+	"custom/clock": {
+		"exec": "date +\"%b %e %l:%M %p\"",
+		"interval": 1
 	},
 	"battery": {
     	"states": {

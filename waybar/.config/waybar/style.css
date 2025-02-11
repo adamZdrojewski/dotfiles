@@ -75,7 +75,7 @@ button:hover {
 	padding-right: 4px;
 }
 
-#clock {
+#clock, #custom-clock {
 	color: @lavender;
 }
 
