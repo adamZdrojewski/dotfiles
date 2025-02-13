@@ -1,0 +1,8 @@
+theme = catppuccin-mocha
+
+font-family = Hack Nerd Font
+font-size = 12
+
+background-opacity = 0.9
+
+command = TERM=xterm-256color /usr/bin/bash
