@@ -3,6 +3,17 @@
 	"modules-left": ["hyprland/workspaces"],
 	"modules-center": ["custom/clock"],
 	"modules-right": ["network", "pulseaudio", "battery"],
+	"hyprland/workspaces": {
+		"disable-scroll": true,
+		"all-outputs": true,
+		"warp-on-scroll": false,
+		"format": "{icon}",
+		"format-icons": {
+			"1": "",
+			"2": "",
+			"3": "",
+		}
+	},
 	"clock": {
 		"format": "{0:%b %e  %I:%M %p}",
 		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
@@ -28,7 +39,7 @@
 	},
 	"network": {
     	"format-wifi": " {essid}",
-    	"format-ethernet": " Connected",
+		"format-ethernet": "<span foreground='#A6E3A1'> Connected</span>",
     	"format-linked": " {ifname} (No IP)",
     	"format-disconnected": " Disconnected",
     	"tooltip-format-wifi": "Signal Strenght: {signalStrength}%"
