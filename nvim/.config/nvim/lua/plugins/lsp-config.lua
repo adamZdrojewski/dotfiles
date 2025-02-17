@@ -22,7 +22,8 @@ return {
 					"html",
 					"jdtls",
 					"cssls",
-					"bashls"
+					"bashls",
+					"pyright"
 				}
 			})
 		end
