@@ -16,6 +16,9 @@ export NVM_DIR="$HOME/.nvm"
 ## ll Alias
 alias ll="ls -la"
 
+# Add ./local/bin scripts to path
+export PATH="$PATH:$HOME/.local/bin"
+
 # Setup Starship
 eval "$(starship init bash)"
 

@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+
+# Functions
+function createNewTmuxSession {
+	# Check if .tmux-layout file exists
+	if [ -f "$project_dir/.tmux-layout" ]; then
+		# .tmux-layout file exists - run it
+		source "$project_dir/.tmux-layout"
+	else
+		# .tmux-layout file does not exist - create default layout
+		tmux new-session -ds $session_name -c $project_dir
+		tmux rename-window -t "$session_name:1" Editor
+		tmux send-keys -t "$session_name:1" nvim C-m
+		tmux new-window -t $session_name -c $project_dir -n "Console"
+		tmux select-window -t "$session_name:1"
+	fi
+}
+
+# ----- Start -----
+
+# Select project directory with fzf
+project_dir=$(find ~/Projects -mindepth 1 -maxdepth 1 -type d | fzf)
+
+# Exit if no directory was selected
+if [[ -z $project_dir ]]; then
+	exit 0
+fi
+
+# Get basename of directory from selected path and remove . from directory name
+session_name=$(basename "$project_dir" | tr . _)
+
+# Check if tmux is running
+tmux_running=$(pgrep tmux)
+if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+	# Tmux is not running - launch new session
+	createNewTmuxSession
+	tmux a -t $session_name
+	exit 0
+fi
+
+# Check if a tmux session already exists with session_name
+if ! tmux has-session -t=$session_name 2> /dev/null; then
+	# No session exists with session_name
+	createNewTmuxSession
+fi
+
+# Check if currently in tmux session
+if [[ -n $TMUX ]]; then
+	# Currently in tmux session - switch client to session
+	tmux switch-client -t $session_name
+else
+	# Not currently in tmux session - attach to session
+	tmux a -t $session_name
+fi
