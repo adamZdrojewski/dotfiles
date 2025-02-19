@@ -24,9 +24,3 @@ eval "$(starship init bash)"
 
 # Expense entry alias
 alias expenseentry="node /opt/expenseEntry/index.js"
-
-# Tmuxifier
-export PATH="$PATH:$HOME/.tmux/plugins/tmuxifier/bin"
-export TMUXIFIER_LAYOUT_PATH="$HOME/.tmux-layouts"
-export EDITOR="nvim"
-eval "$(tmuxifier init -)"
