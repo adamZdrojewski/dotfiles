@@ -37,13 +37,6 @@ return {
 		scroll = { enabled = false },
 		statuscolumn = { enabled = false },
 		words = { enabled = false },
-		image = {
-			formats = {
-				"jpg",
-				"jpeg",
-				"png",
-				"gif"
-			}
-		}
+		image = { enabled = false }
 	}
 }
