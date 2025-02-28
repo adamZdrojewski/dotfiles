@@ -101,7 +101,7 @@ button:hover {
 }
 
 #battery {
-	color: @green;
+	color: @pink;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
