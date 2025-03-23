@@ -7,5 +7,5 @@ then
 	pkill wlsunset
 else
 	# Not running - start it up
-	wlsunset -t 3000 &
+	wlsunset -t 3000 -S 10:00 -s 11:00 &
 fi
