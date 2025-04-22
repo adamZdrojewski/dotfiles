@@ -1,0 +1,8 @@
+{
+    "extensions": [
+        "Catppuccin.catppuccin-vsc",
+        "Catppuccin.catppuccin-vsc-icons",
+        "golf1052.code-sync",
+        "vscodevim.vim"
+    ]
+}
