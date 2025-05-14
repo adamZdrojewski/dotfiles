@@ -42,6 +42,7 @@ terminal_packages=(
 	lazygit
 	man-db
 	ttf-hack-nerd
+	wget
 )
 
 for package in ${terminal_packages[@]}; do
@@ -49,7 +50,11 @@ for package in ${terminal_packages[@]}; do
 done
 
 # Install tmux plugins
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ~/.tmux/plugins/tpm/scripts/install_plugins.sh
+
+# Create ~/Projects directory
+mkdir ~/Projects
 
 # Install Hyprland
 hyprland_packages=(
