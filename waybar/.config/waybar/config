@@ -40,7 +40,7 @@
 	},
 	"network": {
     	"format-wifi": "<span foreground='#A6E3A1'> {essid}</span>",
-		"format-ethernet": "<span foreground='#A6E3A1'> Connected</span>",
+		"format-ethernet": "<span foreground='#A6E3A1'> Connected</span>",
     	"format-linked": " {ifname} (No IP)",
     	"format-disconnected": " Disconnected",
     	"tooltip-format-wifi": "Signal Strenght: {signalStrength}%"
