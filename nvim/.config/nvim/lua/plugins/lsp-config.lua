@@ -1,16 +1,16 @@
 return {
 	{
 		"williamboman/mason.nvim",
-		opts = {}
-		--[[config = function()
+		lazy = false,
+		config = function()
 			require("mason").setup()
-		end]]--
+		end,
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
 		lazy = false,
 		opts = {
-			auto_install = true
+			auto_install = true,
 		},
 		config = function()
 			local mason_lspconfig = require("mason-lspconfig")
@@ -20,45 +20,30 @@ return {
 					"lua_ls",
 					"ts_ls",
 					"html",
-					"jdtls",
 					"cssls",
-					"bashls",
-					"pyright"
+					"bashls"
 				}
 			})
 		end
 	},
 	{
 		"neovim/nvim-lspconfig",
+		lazy = false,
 		config = function()
-			local capabilities = require('cmp_nvim_lsp').default_capabilities()
+			local cmp_nvim_lsp = require("cmp_nvim_lsp")
+			local capabilities = vim.tbl_deep_extend(
+				"force",
+				{},
+				vim.lsp.protocol.make_client_capabilities(),
+				cmp_nvim_lsp.default_capabilities()
+			)
 
 			local lspconfig = require("lspconfig")
-			require("java").setup({
-				jdk = {
-					auto_install = false
-				}
-			})
-			lspconfig.jdtls.setup({
-				capabilities = capabilities,
-				settings = {
-					java = {
-						configuration = {
-							runtimes = {
-								{
-									name = "JavaSE-23",
-									path = "/usr/lib/jvm/jdk-23.0.1-oracle-x64",
-									default = true,
-								}
-							}
-						}
-					}
-				}
-			})
+
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities
 			})
-			lspconfig.ts_ls.setup({
+			lspconfig.ta_ls.setup({
 				capabilities = capabilities
 			})
 			lspconfig.html.setup({
@@ -72,8 +57,11 @@ return {
 			})
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
-			vim.keymap.set({"n", "v"}, "<leader>ca", vim.lsp.buf.code_action, {})
-		end
-	}
+			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
+			vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
+			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
+			vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
+			vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, {})
+		end,
+	},
 }
