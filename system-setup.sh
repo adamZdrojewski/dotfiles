@@ -43,6 +43,7 @@ terminal_packages=(
 	man-db
 	ttf-hack-nerd
 	wget
+	github-cli
 )
 
 for package in ${terminal_packages[@]}; do
