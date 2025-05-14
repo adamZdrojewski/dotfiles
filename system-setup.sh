@@ -46,7 +46,7 @@ terminal_packages=(
 )
 
 for package in ${terminal_packages[@]}; do
-	sudo yay -S --noconfirm ${package}
+	yay -S --noconfirm ${package}
 done
 
 # Install tmux plugins
@@ -72,8 +72,8 @@ hyprland_packages=(
 	adw-gtk-theme-git
 )
 
-for package in ${hyprland_yay_packages[@]}; do
-	sudo yay -S --noconfirm ${package}
+for package in ${hyprland_packages[@]}; do
+	yay -S --noconfirm ${package}
 done
 
 # Install other misc packages
@@ -84,6 +84,6 @@ misc_packages=(
 	gimp
 )
 
-for package in ${hyprland_yay_packages[@]}; do
-	sudo yay -S --noconfirm ${package}
+for package in ${misc_packages[@]}; do
+	yay -S --noconfirm ${package}
 done
