@@ -82,6 +82,8 @@ misc_packages=(
 	spotify-launcher
 	vlc
 	gimp
+	nwg-look
+	neofetch
 )
 
 for package in ${misc_packages[@]}; do
