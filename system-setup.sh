@@ -75,6 +75,8 @@ done
 misc_packages=(
 	google-chrome
 	spotify-launcher
+	vlc
+	gimp
 )
 
 for package in ${hyprland_yay_packages[@]}; do
