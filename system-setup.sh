@@ -44,6 +44,7 @@ terminal_packages=(
 	ttf-hack-nerd
 	wget
 	github-cli
+	fzf
 )
 
 for package in ${terminal_packages[@]}; do
