@@ -86,6 +86,7 @@ misc_packages=(
 	gimp
 	nwg-look
 	neofetch
+	usbutils
 )
 
 for package in ${misc_packages[@]}; do
