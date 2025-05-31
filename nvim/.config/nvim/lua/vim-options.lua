@@ -29,3 +29,16 @@ vim.cmd("inoremap <Left> <Nop>")
 vim.cmd("inoremap <Right> <Nop>")
 vim.cmd("inoremap <Up> <Nop>")
 vim.cmd("inoremap <Down> <Nop>")
+
+vim.diagnostic.config {
+	signs = true,
+	underline = true,
+	virtual_text = true,
+	virtual_lines = false,
+	update_in_insert = true,
+	float = {
+		header = false,
+		border = "rounded",
+		focusable = false,
+	}
+}
