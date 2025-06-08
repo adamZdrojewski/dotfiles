@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Set config file path
+switches_file="$HOME/.switches"
+
+# Prompt user to select switch
+selected_switch_name=$(jq ".[] | .name" $switches_file | fzf)
+
+# Exit if not switch was selected
+if [[ -z $selected_switch_name ]]; then
+	exit 0
+fi
+
+# Get selected switch info
+selected_switch_info=$(jq ".[] | select(.name == $selected_switch_name)" $switches_file)
+selected_switch_ip=$(echo $selected_switch_info | jq ".ip")
+selected_switch_port=$(echo $selected_switch_info | jq ".port")
+
+# Remove double quotes from info
+selected_switch_ip=${selected_switch_ip//\"/}
+selected_switch_port=${selected_switch_port//\"/}
+
+# Make SSH connection
+ssh $selected_switch_ip -p $selected_switch_port -l adam.p.zdrojewski
