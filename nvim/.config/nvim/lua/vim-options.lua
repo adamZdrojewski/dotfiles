@@ -30,6 +30,16 @@ vim.cmd("inoremap <Right> <Nop>")
 vim.cmd("inoremap <Up> <Nop>")
 vim.cmd("inoremap <Down> <Nop>")
 
+-- Spell checking
+vim.opt.spell = false
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "markdown",
+	callback = function()
+		vim.opt.spell = true
+		vim.opt.spelllang = "en_us"
+	end
+})
+
 vim.diagnostic.config {
 	signs = true,
 	underline = true,
