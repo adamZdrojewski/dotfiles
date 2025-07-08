@@ -19,17 +19,6 @@ vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")
 vim.keymap.set("n", "<c-h>", ":wincmd h<CR>")
 vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
 
--- Disable arrow keys
-vim.cmd("noremap <Left> <Nop>")
-vim.cmd("noremap <Right> <Nop>")
-vim.cmd("noremap <Up> <Nop>")
-vim.cmd("noremap <Down> <Nop>")
-
-vim.cmd("inoremap <Left> <Nop>")
-vim.cmd("inoremap <Right> <Nop>")
-vim.cmd("inoremap <Up> <Nop>")
-vim.cmd("inoremap <Down> <Nop>")
-
 -- Spell checking
 vim.opt.spell = false
 vim.api.nvim_create_autocmd("FileType", {
