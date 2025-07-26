@@ -8,6 +8,8 @@ vim.g.mapleader = " "
 
 vim.cmd("set number")
 
+vim.opt.relativenumber = true
+
 -- System clipboard copy/paste
 vim.keymap.set("v", "<leader>y", '"+y')
 vim.keymap.set("n", "<leader>yy", '"+yy')
