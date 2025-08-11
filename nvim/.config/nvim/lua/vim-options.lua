@@ -10,6 +10,14 @@ vim.cmd("set number")
 
 vim.opt.relativenumber = true
 
+-- Half-page jumping with cursor center
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true })
+
+-- Searching with cursor center
+vim.keymap.set("n", "n", "nzzzv", { noremap = true })
+vim.keymap.set("n", "N", "Nzzzv", { noremap = true })
+
 -- System clipboard copy/paste
 vim.keymap.set("v", "<leader>y", '"+y')
 vim.keymap.set("n", "<leader>yy", '"+yy')
