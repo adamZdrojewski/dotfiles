@@ -22,5 +22,5 @@ export PATH="$PATH:$HOME/.local/bin"
 # Setup Starship
 eval "$(starship init bash)"
 
-# Expense entry alias
-alias expenseentry="node /opt/expenseEntry/index.js"
+# Add Cargo to path
+export PATH="$PATH:$HOME/.cargo/env"
