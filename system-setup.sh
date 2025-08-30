@@ -92,3 +92,13 @@ misc_packages=(
 for package in ${misc_packages[@]}; do
 	yay -S --noconfirm ${package}
 done
+
+# Download profile pic from GitHub
+wget -O ~/.face https://github.com/adamzdrojewski.png
+
+# Further instructions
+echo "##########"
+echo "Done!"
+echo "You should probably restart your system"
+echo "You will probably want to install Rust"
+echo "##########"
