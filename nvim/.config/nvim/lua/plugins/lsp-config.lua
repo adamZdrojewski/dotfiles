@@ -21,7 +21,8 @@ return {
 					"ts_ls",
 					"html",
 					"cssls",
-					"bashls"
+					"bashls",
+					"rust_analyzer"
 				}
 			})
 		end
