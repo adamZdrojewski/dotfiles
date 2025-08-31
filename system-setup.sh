@@ -96,9 +96,8 @@ done
 # Download profile pic from GitHub
 wget -O ~/.face https://github.com/adamzdrojewski.png
 
-# Further instructions
-echo "##########"
-echo "Done!"
-echo "You should probably restart your system"
-echo "You will probably want to install Rust"
-echo "##########"
+# Install rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
+
+# All done!
+echo "All done!"
