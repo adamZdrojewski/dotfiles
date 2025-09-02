@@ -22,5 +22,5 @@ export PATH="$PATH:$HOME/.local/bin"
 # Setup Starship
 eval "$(starship init bash)"
 
-# Add Cargo to path
-export PATH="$PATH:$HOME/.cargo/env"
+# Source Cargo env file
+. "$HOME/.cargo/env"
