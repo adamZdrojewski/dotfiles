@@ -87,6 +87,8 @@ misc_packages=(
 	nwg-look
 	neofetch
 	usbutils
+	nodejs-lts-jod
+	npm
 )
 
 for package in ${misc_packages[@]}; do
@@ -102,5 +104,5 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-mod
 # All done!
 echo "All done!"
 echo "##########"
-echo "You may still need to install NodeJS and Nvidia drivers."
+echo "You may still need to install Nvidia drivers."
 echo "##########"
