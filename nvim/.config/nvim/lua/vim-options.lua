@@ -39,6 +39,10 @@ vim.api.nvim_create_autocmd("FileType", {
 	end
 })
 
+-- EJS highlighting
+vim.cmd('autocmd BufRead,BufNewFile *.ejs set filetype=ejs')
+vim.treesitter.language.register('embedded_template', {'ejs'})
+
 vim.diagnostic.config {
 	signs = true,
 	underline = true,
