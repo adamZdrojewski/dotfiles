@@ -39,22 +39,37 @@ return {
 				cmp_nvim_lsp.default_capabilities()
 			)
 
-			local lspconfig = require("lspconfig")
+			vim.lsp.config("lua_ls", {
+				capabilities = capabilities
+			})
 
-			lspconfig.lua_ls.setup({
+			vim.lsp.config("ts_ls", {
 				capabilities = capabilities
 			})
-			lspconfig.ts_ls.setup({
+
+			vim.lsp.config("html", {
 				capabilities = capabilities
 			})
-			lspconfig.html.setup({
+
+			vim.lsp.config("cssls", {
 				capabilities = capabilities
 			})
-			lspconfig.cssls.setup({
+
+			vim.lsp.config("bashls", {
 				capabilities = capabilities
 			})
-			lspconfig.bashls.setup({
+
+			vim.lsp.config("rust_analyzer", {
 				capabilities = capabilities
+			})
+
+			vim.lsp.enable({
+				"lua_ls",
+				"ts_ls",
+				"html",
+				"cssls",
+				"bashls",
+				"rust_analyzer"
 			})
 
 			vim.keymap.set("n", "K", function()
