@@ -2,7 +2,7 @@
 	"position": "top",
 	"modules-left": ["hyprland/workspaces"],
 	"modules-center": ["custom/clock"],
-	"modules-right": ["network", "pulseaudio", "battery"],
+	"modules-right": ["network", "hyprland/language", "pulseaudio", "battery"],
 	"hyprland/workspaces": {
 		"disable-scroll": true,
 		"all-outputs": true,
@@ -45,6 +45,11 @@
     	"format-disconnected": " Disconnected",
     	"tooltip-format-wifi": "Signal Strenght: {signalStrength}%"
   	},
+	"hyprland/language": {
+		"format": "{}",
+		"format-en": "<span foreground='#F9E2AF'>QWERTY</span>",
+		"format-en-dvp": "<span foreground='#EBA0AC'>DVORAK</span>"
+	},
 	"pulseaudio": {
     	"format": "{icon} {volume}%",
       	"format-muted": "",
