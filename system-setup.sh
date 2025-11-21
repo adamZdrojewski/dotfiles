@@ -72,6 +72,7 @@ hyprland_packages=(
 	hyprshot
 	catppuccin-cursors-mocha
 	adw-gtk-theme-git
+	brightnessctl
 )
 
 for package in ${hyprland_packages[@]}; do
@@ -89,6 +90,7 @@ misc_packages=(
 	usbutils
 	nodejs-lts-jod
 	npm
+	notion-app-electron
 )
 
 for package in ${misc_packages[@]}; do
