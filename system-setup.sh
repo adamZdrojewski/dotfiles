@@ -90,7 +90,6 @@ misc_packages=(
 	usbutils
 	nodejs-lts-jod
 	npm
-	notion-app-electron
 )
 
 for package in ${misc_packages[@]}; do
