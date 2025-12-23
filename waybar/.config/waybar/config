@@ -38,10 +38,10 @@
 		"tooltip-format": "{time}"
 	},
 	"network": {
-    	"format-wifi": "<span foreground='#A6E3A1'> {essid}</span>",
-		"format-ethernet": "<span foreground='#A6E3A1'> Connected</span>",
-    	"format-linked": " {ifname} (No IP)",
-    	"format-disconnected": " Disconnected",
+    	"format-wifi": " {essid}",
+		"format-ethernet": " Connected",
+    	"format-linked": "<span foreground='#F38BA8'>{ifname} (No IP)</span>",
+    	"format-disconnected": "<span foreground='#F38BA8'> Disconnected</span>",
     	"tooltip-format-wifi": "Signal Strenght: {signalStrength}%"
   	},
 	"pulseaudio": {

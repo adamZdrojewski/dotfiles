@@ -2,7 +2,7 @@
 
 * {
 	font-family: "Hack Nerd Font";
-	font-size: 14px;
+	font-size: 16px;
 	min-height: 0;
 	font-weight: bold;
 }
@@ -10,13 +10,10 @@
 window#waybar {
 	background: transparent;
 	background-color: @crust;
-	color: @text;
+	color: @overlay0;
 	transition-property: background-color;
 	transition-duration: 0.1s;
-}
-
-window#waybar > box {
-	padding:3px;
+	border-bottom: 1px solid @overlay1;
 }
 
 #window {
@@ -26,7 +23,6 @@ window#waybar > box {
 }
 
 button {
-	color: inherit;
 	box-shadow: inset 0 -3px transparent;
 	border: none;
 	border-radius: 0;
@@ -35,14 +31,23 @@ button {
 button:hover {
 	background: inherit;
 	color: @mauve;
+	border-top: 2px solid @mauve;
 }
 
 #workspaces button {
 	padding: 0 4px;
 }
 
+#workspaces button.focused {
+	background-color: rgba(0, 0, 0, 0.3);
+	color: @rosewater;
+	border-top: 2px solid @rosewater;
+}
+
 #workspaces button.active {
+	background-color: rgba(0, 0, 0, 0.3);
 	color: @mauve;
+	border-top: 2px solid @mauve;
 }
 
 #workspaces button.urgent {
@@ -70,6 +75,35 @@ button:hover {
 	padding-right: 4px;
 }
 
+#clock, #custom-clock {
+	color: @lavender;
+}
+
+#clock.date {
+	color: @mauve;
+}
+
+#pulseaudio {
+	color: @sky;
+}
+
+#network {
+	color: @red;
+}
+
+#idle_inhibitor {
+	margin-right: 12px;
+	color: #7cb342;
+}
+
+#idle_inhibitor.activated {
+	color: @red;
+}
+
+#battery {
+	color: @pink;
+}
+
 /* If workspaces is the leftmost module, omit left margin */
 .modules-left>widget:first-child>#workspaces {
 	margin-left: 0;
@@ -78,4 +112,11 @@ button:hover {
 /* If workspaces is the rightmost module, omit right margin */
 .modules-right>widget:last-child>#workspaces {
 	margin-right: 0;
+}
+
+#custom-vpn {
+	color: @lavender;
+	border-radius: 15px;
+	padding-left: 6px;
+	padding-right: 6px;
 }
