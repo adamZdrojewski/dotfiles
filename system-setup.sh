@@ -90,6 +90,7 @@ misc_packages=(
 	usbutils
 	nodejs-lts-jod
 	npm
+	dnsutils
 )
 
 for package in ${misc_packages[@]}; do
