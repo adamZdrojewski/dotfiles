@@ -42,7 +42,8 @@
 		"format-ethernet": " Connected",
     	"format-linked": "<span foreground='#F38BA8'>{ifname} (No IP)</span>",
     	"format-disconnected": "<span foreground='#F38BA8'> Disconnected</span>",
-    	"tooltip-format-wifi": "Signal Strenght: {signalStrength}%"
+    	"tooltip-format-wifi": "Signal Strenght: {signalStrength}%",
+		"on-click": "ghostty -e wlctl"
   	},
 	"pulseaudio": {
     	"format": "{icon} {volume}%",

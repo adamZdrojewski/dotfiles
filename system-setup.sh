@@ -91,6 +91,8 @@ misc_packages=(
 	nodejs-lts-jod
 	npm
 	dnsutils
+	wlctl-bin
+	bluetui
 )
 
 for package in ${misc_packages[@]}; do
