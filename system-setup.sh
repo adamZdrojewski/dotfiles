@@ -102,6 +102,10 @@ done
 # Download profile pic from GitHub
 wget -O ~/.face https://github.com/adamzdrojewski.png
 
+# Disable power button short press
+sudo mkdir -p /etc/systemd/logind.conf.d
+echo -e "[Login]\nHandlePowerKey=ignore" | sudo tee /etc/systemd/logind.conf.d/99-custom.conf
+
 # Install rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
 
