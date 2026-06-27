@@ -1,0 +1,18 @@
+#!/bin/bash
+
+MONITOR_COUNT=$(hyprctl monitors | grep -c "Monitor")
+
+if [ "$1" = "close" ]; then
+	# Lid closed - is docking station connected?
+	if [ "$MONITOR_COUNT" -gt 1 ]; then
+		# Connected to docking station
+		hyprctl keyword monitor "eDP-1, disable"
+	else
+		# Not connected to docking station
+		hyprctl dispatch dpms off eDP-1
+	fi
+elif [ "$1" = "open" ]; then
+	# Lid opened - power screen on
+	hyprctl keyword monitor "eDP-1, preferred, 0x0, 1"
+	hyprctl dispatch dpms on eDP-1
+fi
