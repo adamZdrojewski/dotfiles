@@ -82,7 +82,7 @@ done
 # Install other misc packages
 misc_packages=(
 	google-chrome
-	spotify-launcher
+	feishin
 	vlc
 	gimp
 	nwg-look
