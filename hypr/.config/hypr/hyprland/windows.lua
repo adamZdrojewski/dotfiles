@@ -22,10 +22,3 @@ hl.window_rule({
 	},
 	no_focus = true,
 })
-
--- Open Chrome's auto-start in workspace 2
-hl.window_rule({
-	name = "chrome-startup-to-workspace-2",
-	match = { class = "google-chrome" },
-	workspace = "2 silent"
-})
