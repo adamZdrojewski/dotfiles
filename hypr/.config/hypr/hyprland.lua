@@ -21,9 +21,6 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("hypridle")
 	hl.exec_cmd("hyprpaper")
 
-	-- Enable numlock
-	hl.exec_cmd("hyprctl keyword input:numlock_by_default true")
-
 	-- Start gui auth agent
 	hl.exec_cmd("systemctl --user start hyprpolkitagent")
 
