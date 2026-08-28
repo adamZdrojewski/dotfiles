@@ -5,9 +5,9 @@
 -- Laptop Monitors
 hl.monitor({
 	output = "eDP-1",
-	mode = "preferred",
+	mode = "1920x1080",
 	position = "0x0",
-	scale = "auto"
+	scale = "1.25"
 })
 
 -- Disable laptop screen if lid is closed
