@@ -1,116 +1,67 @@
 #!/bin/bash
 
-# System Setup
-
-# Install yay
-sudo pacman -Syu --noconfirm
-sudo pacman -S --needed --noconfirm base-devel git
-cd ~/Downloads
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si --noconfirm
-rm -rf ~/Downloads/yay
+# Omarchy System Setup
 
 # Install GNU stow & create symlinks for dotfiles
 sudo pacman -S --noconfirm stow
 cd ~
 git clone https://github.com/adamZdrojewski/dotfiles.git
 
-rm .bashrc
+rm -rf ~/.config/ghostty
+rm -rf ~/.config/hypr
+rm -rf ~/.config/nvim
+rm -rf ~/.config/tmux
 cd ~/dotfiles
 stow bashrc
-stow bin
 stow ghostty
 stow hypr
-stow lazygit
 stow nvim
-stow rofi
-stow starship
+stow scripts
 stow tmux
-stow waybar
 
 cd ~
 
-# Install terminal packages
-terminal_packages=(
+# Source my bashrc file
+if ! grep -qF "~/.bashrc.local" ~/.bashrc 2>/dev/null; then
+    echo "" >> ~/.bashrc
+    echo "# Source stuff from my dotfiles" >> ~/.bashrc
+    echo '[ -f ~/.bashrc.local ] && source ~/.bashrc.local' >> ~/.bashrc
+    echo "Added ~/.bashrc.local hook to ~/.bashrc"
+fi
+
+# Install packages
+my_packages=(
 	ghostty
-	neovim
 	ripgrep
 	xclip
-	tmux
-	starship
-	lazygit
-	man-db
-	ttf-hack-nerd
 	wget
-	github-cli
-	fzf
+	google-chrome
+	feishin
+	vlc
+	gimp
+	dnsutils
 )
 
-for package in ${terminal_packages[@]}; do
+for package in ${my_packages[@]}; do
 	yay -S --noconfirm ${package}
 done
+
+# Set default apps
+omarchy default terminal ghostty
+omarchy default browser chrome
 
 # Install tmux plugins
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ~/.tmux/plugins/tpm/scripts/install_plugins.sh
 
-# Create ~/Projects directory
-mkdir ~/Projects
-
-# Install Hyprland
-hyprland_packages=(
-	hyprland
-	waybar
-	swaync
-	hyprlock
-	hypridle
-	hyprpaper
-	hyprpolkitagent
-	wlsunset
-	rofi
-	hyprshot
-	catppuccin-cursors-mocha
-	adw-gtk-theme-git
-	brightnessctl
-)
-
-for package in ${hyprland_packages[@]}; do
-	yay -S --noconfirm ${package}
-done
-
-# Install other misc packages
-misc_packages=(
-	google-chrome
-	feishin
-	vlc
-	gimp
-	nwg-look
-	neofetch
-	usbutils
-	nodejs-lts-jod
-	npm
-	dnsutils
-	wlctl-bin
-	bluetui
-)
-
-for package in ${misc_packages[@]}; do
-	yay -S --noconfirm ${package}
-done
-
-# Download profile pic from GitHub
-wget -O ~/.face https://github.com/adamzdrojewski.png
-
-# Disable power button short press
-sudo mkdir -p /etc/systemd/logind.conf.d
-echo -e "[Login]\nHandlePowerKey=ignore" | sudo tee /etc/systemd/logind.conf.d/99-custom.conf
-
 # Install rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
 
+# Set Omarchy theme
+omarchy theme set catppuccin
+
+# Set Omarchy clock format
+jq '(.. | select(.id? == "omarchy.clock")).format = "dddd, MMM d h:mm AP"' ~/.config/omarchy/shell.json > ~/.config/omarchy/shell.json.tmp && mv ~/.config/omarchy/shell.json.tmp ~/.config/omarchy/shell.json
+
 # All done!
 echo "All done!"
-echo "##########"
-echo "You may still need to install Nvidia drivers."
-echo "##########"

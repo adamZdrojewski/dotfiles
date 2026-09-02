@@ -1,0 +1,5 @@
+## ll Alias
+alias ll="ls -la"
+
+# Source Cargo env file
+. "$HOME/.cargo/env"

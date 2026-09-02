@@ -1,51 +1,22 @@
-hl.config({
-	ecosystem = {
-		no_update_news = true,
-		no_donation_nag = true
-	}
-})
+---------------------------
+-- OMARCHY DEFAULT STUFF --
+---------------------------
+
+-- Omarchy's bootstrap keeps path setup out of this user config.
+dofile((os.getenv("OMARCHY_PATH") or "/usr/share/omarchy") .. "/default/hypr/bootstrap.lua")
+
+-- Load Omarchy defaults.
+require("default.hypr.omarchy")
 
 
------------------
---- AUTOSTART ---
------------------
+------------------------
+-- SOURCE OTHER FILES --
+------------------------
 
-hl.on("hyprland.start", function()
-	-- Catppuccin
-	hl.exec_cmd("hyprctl setcursor catppuccin-mocha-dark-cursors 32")
-	hl.exec_cmd("exec-once = gsettings set org.gnome.desktop.interface cursor-theme catppuccin-mocha-dark-cursors	# command also present in hypridle.conf")
+require("hypr.monitors")
+require("hypr.bindings")
+require("hypr.look_and_feel")
+require("hypr.autostart")
 
-	-- Start programs
-	hl.exec_cmd("waybar")
-	hl.exec_cmd("swaync")
-	hl.exec_cmd("hypridle")
-	hl.exec_cmd("hyprpaper")
-
-	-- Start gui auth agent
-	hl.exec_cmd("systemctl --user start hyprpolkitagent")
-
-	-- Autostart Apps
-	hl.exec_cmd("[workspace 1 silent] ghostty")
-	hl.exec_cmd("[workspace 2 silent] google-chrome-stable --disable-features=WaylandWpColorManagerV1")
-	hl.exec_cmd("[workspace 3 silent] feishin")
-	hl.exec_cmd("sleep 5 && hyprctl keyword 'windowrule[chrome-startup-to-workspace-2]:enable false'")
-end)
-
-
------------------------------
---- ENVIRONMENT VARIABLES ---
------------------------------
-
-hl.env("XCURSOR_SIZE", "24")
-hl.env("HYPRCURSOR_SIZE", "24")
-
-
---------------------------
---- SOURCE OTHER FILES ---
---------------------------
-
-require("~/.config/hypr/hyprland/monitors")
-require("~/.config/hypr/hyprland/input")
-require("~/.config/hypr/hyprland/lookAndFeel")
-require("~/.config/hypr/hyprland/keybindings")
-require("~/.config/hypr/hyprland/windows")
+-- Toggle config flags dynamically.
+require("default.hypr.toggles")
