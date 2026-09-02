@@ -33,5 +33,10 @@ if hostname == "AZ-HUR-PC-1311" then
   hl.workspace_rule({ workspace = "6", monitor = "DP-1", default = false })
 elseif hostname == "AZ-HUR-LT-0002" then
   -- Laptop config
-  -- include laptop monitor config here...
+  hl.monitor({
+	  output = "eDP-1",
+	  mode = "1920x1080",
+	  position = "0x0",
+	  scale = "1.25"
+  })
 end
