@@ -21,4 +21,9 @@ selected_switch_ip=${selected_switch_ip//\"/}
 selected_switch_port=${selected_switch_port//\"/}
 
 # Make SSH connection
-ssh $selected_switch_ip -p $selected_switch_port -l adam.p.zdrojewski
+ssh \
+	$selected_switch_ip \
+	-p $selected_switch_port \
+	-l adam.p.zdrojewski \
+	-o KexAlgorithms=+diffie-hellman-group14-sha1,diffie-hellman-group1-sha1 \
+	-o HostKeyAlgorithms=+ssh-rsa,ssh-dss
