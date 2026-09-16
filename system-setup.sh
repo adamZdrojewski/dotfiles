@@ -61,7 +61,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-mod
 omarchy theme set catppuccin
 
 # Set Omarchy clock format
-jq '(.. | select(.id? == "omarchy.clock")).format = "dddd, MMM d h:mm AP"' ~/.config/omarchy/shell.json > ~/.config/omarchy/shell.json.tmp && mv ~/.config/omarchy/shell.json.tmp ~/.config/omarchy/shell.json
+omarchy bar set omarchy.clock format "dddd, MMM d h:mm AP"
 
 # All done!
 echo "All done!"
