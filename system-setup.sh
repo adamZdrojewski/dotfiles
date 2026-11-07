@@ -63,5 +63,8 @@ omarchy theme set catppuccin
 # Set Omarchy clock format
 omarchy bar set omarchy.clock format "dddd, MMM d h:mm AP"
 
+# Set Omarchy screensaver
+omarchy ascii "Adam  Z" > ~/.config/omarchy/branding/screensaver.txt
+
 # All done!
 echo "All done!"
