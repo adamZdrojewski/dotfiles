@@ -18,7 +18,7 @@ o.bind("SUPER + F", "Full width", hl.dsp.window.fullscreen({ mode = "maximized" 
 
 -- Nightlight
 hl.unbind("SUPER + CTRL + N")
-o.bind("SUPER + N", "Toggle nightlight", "pgrep -x hyprsunset > /dev/null && killall hyprsunset || hyprsunset -t 3000 &")
+o.bind("SUPER + N", "Toggle nightlight", "hyprshade toggle blue-light-filter")
 
 -- Lock
 hl.unbind("SUPER + CTRL + L")

@@ -40,6 +40,7 @@ my_packages=(
 	vlc
 	gimp
 	dnsutils
+	hyprshade
 )
 
 for package in ${my_packages[@]}; do
